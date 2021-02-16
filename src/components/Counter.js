@@ -18,6 +18,7 @@ The other things can simply be _derived_ from the count itself.
 STEP 0:
   Start by studying the component below, and importing the state hook.
 
+
 STEP 1:
   Using the state hook, create a 'count', 'setCount' pair.
   The 'count' state should be initialized to the number zero.
@@ -46,32 +47,33 @@ STEP 6:
   This click handler needs to use 'setCount' to set the 'count' to be zero again.
 */
 
-import React from 'react'; /* STEP 0 */
+import React, {useState} from 'react'; //import use of useState
 
 export default function Counter() {
   /* STEP 1 */
+  const [count, setCount] = useState(0); //count slice of state with initial state of 0
 
   const increment = () => {
-    /* STEP 4 */
+    setCount(count + 1) //count increments by 1
   };
-  const decrement = () => {
-    /* STEP 5 */
+  const decrement = () => { //count decrements by 1
+    setCount(count - 1)
   };
-  const reset = () => {
-    /* STEP 6 */
+  const reset = () => { //set count to zero
+    setCount(0)
   };
 
   const style = {
     fontSize: '1.5em',
     marginBottom: '0.3em',
-    color: 'royalblue', /* STEP 2 */
+    color: count%2 === 0 ? 'royalblue' : 'crimson' //if count is even (or count mod 2 equals 0) then color royalblue, otherwise color crimson
   };
 
   return (
     <div className='widget-counter container'>
       <h2>Counter</h2>
       <div id='count' style={style}>
-        Number 0 is even {/* STEP 3 */}
+        Number {count} is {count % 2 === 0 ? "even" : "odd"}
       </div>
       <div>
         <button id='increment' onClick={increment}>Increment</button>
@@ -81,3 +83,4 @@ export default function Counter() {
     </div>
   );
 }
+//display even or odd based on whether the count mod 2 is zero

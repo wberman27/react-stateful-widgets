@@ -34,7 +34,7 @@ STEP 6:
   We need to add an extra prop to the <input /> element like so: value={inputValue}
 */
 
-import React, {useState} from 'react'; /* STEP 0 */
+import React, {useState} from 'react'; //import useState
 
 export default function Input() {
   const [inputValue, setInputValue] = useState("");
@@ -45,7 +45,7 @@ export default function Input() {
     const { value } = evt.target;
     //console.log(value)
 
-    setInputValue(value);
+    setInputValue(value); //the current value of "value" will be what the inputvalue display is set to
   };
   const reset = () => {
     setInputValue("");
@@ -54,7 +54,7 @@ export default function Input() {
   const style = {
     fontSize: '1.5em',
     marginBottom: '0.3em',
-    color: inputValue.length > 10 ? 'crimson' : 'royalblue'
+    color: inputValue.length > 10 ? 'crimson' : 'royalblue' //if the length of the inputValue array is greater than 10, color crimson, otherwise (default) royalblue
   };
 
   return (
@@ -62,9 +62,10 @@ export default function Input() {
       <h2>Input</h2>
       <div id='output' style={style}>{inputValue.toUpperCase()}</div>
       <div>
-        <input id='input' type='text' onChange={changeInput} value={inputValue}/> {/* STEP 6 */}
+        <input id='input' type='text' onChange={changeInput} value={inputValue}/>
         <button id='resetInput' onClick={reset}>Reset</button>
       </div>
     </div>
   );
 }
+// value = {inputValue} allows for the text in the field to reset to inputValue state

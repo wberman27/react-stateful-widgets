@@ -43,7 +43,7 @@ export default function Spinner() {
   const [spinnerOn, setSpinnerOn] = useState(true)
 
   const toggleSpinner = () => {
-    setSpinnerOn(!spinnerOn)
+    setSpinnerOn(!spinnerOn) //set the opposite of the truthiness of spinnerOn
   };
 
   return (
@@ -58,3 +58,4 @@ export default function Spinner() {
     </div>
   );
 }
+//display hide or show depending on truthiness of spinnerOn

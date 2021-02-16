@@ -28,8 +28,8 @@ export default function Programmers() {
   // We'll have to use the state hook twice, as we need two slices of state.
   // The programmers list on the one hand, and the id of the featured programmer on the other.
 
-  const [programmers, setProgrammers] = useState(listOfAwesome);
-  const [featProgId, setFeatProgId] = useState(null);
+  const [programmers, setProgrammers] = useState(listOfAwesome); //use programmers slice of state with initial state of awesome array
+  const [featProgId, setFeatProgId] = useState(null); //initial state of null
 
   const getNameOfFeatured = () => {
     // Leave this for last!
@@ -37,7 +37,7 @@ export default function Programmers() {
     // It's going to utilize both slices of state to return the _name_ of the featured dev.
     // The beauty of closures is that we can "see" both slices of state from this region
     // of the program, without needing to inject the information through arguments.
-    return programmers[featProgId-1]["name"]
+    return programmers[featProgId-1]["name"] //return the name that is in the programmers array using the id
 
 
   };
@@ -69,7 +69,7 @@ export default function Programmers() {
           // Pseudo-code: if the currently featured id is truthy render text 1, otherwise render text 2.
           // Replace the hard-coded false with the correct variable.
           featProgId
-            ? `🎉 Let's celebrate ${getNameOfFeatured()}! 🥳`
+            ? `🎉 Let's celebrate ${getNameOfFeatured()}! 🥳` //if featProgId has an id, then return string with the corresponding name of that id, otherwise default
             : 'Pick an awesome programmer'
         }
       </div>

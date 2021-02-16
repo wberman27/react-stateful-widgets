@@ -47,26 +47,26 @@ STEP 6:
   This click handler needs to use 'setCount' to set the 'count' to be zero again.
 */
 
-import React, {useState} from 'react'; /* STEP 0 */
+import React, {useState} from 'react'; //import use of useState
 
 export default function Counter() {
   /* STEP 1 */
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0); //count slice of state with initial state of 0
 
   const increment = () => {
-    setCount(count + 1)
+    setCount(count + 1) //count increments by 1
   };
-  const decrement = () => {
+  const decrement = () => { //count decrements by 1
     setCount(count - 1)
   };
-  const reset = () => {
+  const reset = () => { //set count to zero
     setCount(0)
   };
 
   const style = {
     fontSize: '1.5em',
     marginBottom: '0.3em',
-    color: count%2 === 0 ? 'royalblue' : 'crimson'
+    color: count%2 === 0 ? 'royalblue' : 'crimson' //if count is even (or count mod 2 equals 0) then color royalblue, otherwise color crimson
   };
 
   return (
@@ -83,3 +83,4 @@ export default function Counter() {
     </div>
   );
 }
+//display even or odd based on whether the count mod 2 is zero
